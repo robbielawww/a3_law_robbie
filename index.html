@@ -1,1 +1,516 @@
-<h1>Hello World Wide Web!</h1>
+<!DOCTYPE html>
+<html lang="en-ca">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOBS BEERS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&family=Ledger&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter Tight", sans-serif;
+        line-height: 1.5;
+        color: #ffffff;
+        background-color: #b45309;
+        background-image:
+          radial-gradient(circle at 24px 38px, rgba(255, 251, 235, 0.5) 4px, transparent 5px),
+          radial-gradient(circle at 112px 26px, rgba(255, 255, 255, 0.35) 2px, transparent 2px),
+          radial-gradient(circle at 68px 130px, rgba(255, 251, 235, 0.45) 9px, transparent 10px),
+          radial-gradient(circle at 165px 185px, rgba(255, 255, 255, 0.4) 15px, transparent 16px),
+          radial-gradient(circle at 160px 180px, rgba(255, 255, 255, 0.55) 3px, transparent 5px),
+          radial-gradient(circle at 35px 215px, rgba(255, 251, 235, 0.3) 6px, transparent 10px),
+          linear-gradient(to bottom, #f59e0b, #b45309);
+        background-size: 210px 260px, 210px 260px, 210px 260px, 210px 260px, 210px 260px, 210px 260px, 100% 100%;
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      ul,
+      li {
+        margin-top: 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Ledger", serif;
+        font-weight: 400;
+        line-height: 1.2;
+      }
+
+      #headline {
+        font-size: 2.5em;
+        margin-bottom: 12px;
+      }
+
+      #subhead {
+        font-size: 1.1em;
+        margin-bottom: 16px;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+
+      header {
+        background-color: #111111;
+        color: #ffffff;
+        padding: 16px 0;
+      }
+
+      header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      header h1 {
+        font-family: "Oswald", sans-serif;
+        font-size: 1.25em;
+        margin: 0;
+      }
+
+      header ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      header li {
+        display: inline-block;
+        margin-left: 18px;
+      }
+
+      footer a {
+        color: #ffffff;
+      }
+
+      header li a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 0.8em;
+        text-transform: uppercase;
+      }
+
+      header li a:hover {
+        text-decoration: underline;
+      }
+
+      .greeting {
+        display: block;
+        font-size: 0.75em;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        color: #d97706;
+      }
+
+      .byline {
+        font-size: 0.9em;
+        margin-bottom: 16px;
+      }
+
+      .badge {
+        display: inline-block;
+        background-color: #d97706;
+        color: #ffffff;
+        padding: 8px 14px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .container img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      #main-content {
+        background-color: #141414;
+        color: #ffffff;
+        padding: 36px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 30px;
+        align-items: center;
+      }
+
+      #main-content .byline {
+        color: #cccccc;
+      }
+
+      #main-content img {
+        width: 100%;
+        border-radius: 5px;
+      }
+
+      #sidebar {
+        background-color: #f5f2ec;
+        color: #111111;
+        padding: 36px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      #sidebar .greeting,
+      #sidebar .ingredients-heading,
+      #sidebar .byline {
+        grid-column: 1 / -1;
+        text-align: center;
+      }
+
+      .grid-item {
+        background-color: #f5f2ec;
+        border: 1px solid #dddddd;
+        padding: 16px;
+        border-radius: 4px;
+      }
+
+      .grid-item img {
+        margin-bottom: 12px;
+        width: 100%;
+        height: 130px;
+        object-fit: cover;
+      }
+
+      .grid-item h3 {
+        font-size: 1.2em;
+        margin-bottom: 6px;
+      }
+
+      .ingredients-heading {
+        font-size: 1.8em;
+        margin-bottom: 8px;
+      }
+
+      .yeild {
+        font-size: 0.9em;
+        color: #444444;
+        margin-bottom: 0;
+      }
+
+      #sidebar .byline {
+        color: #555555;
+        margin-bottom: 12px;
+      }
+
+      #top10 {
+        background-color: #141414;
+        color: #ffffff;
+        padding: 36px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+      }
+
+      #top10 h2 {
+        font-family: "Oswald", sans-serif;
+        font-size: 2em;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+
+      #top10 .byline {
+        color: #cccccc;
+      }
+
+      #top10 ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      #top10 li {
+        background-color: #222222;
+        padding: 14px 18px;
+        margin-bottom: 8px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        color: #dddddd;
+      }
+
+      #top10 li strong {
+        display: inline-block;
+        width: 150px;
+        color: #ffffff;
+        font-size: 1.05em;
+      }
+
+      #top10 li:first-child {
+        background-color: #d97706;
+        color: #ffffff;
+        padding: 20px;
+      }
+
+      #top10 li:first-child strong {
+        display: block;
+        width: auto;
+        font-size: 1.4em;
+        margin-bottom: 6px;
+      }
+
+      #top10 li:first-child .badge {
+        background-color: #111111;
+        margin-top: 12px;
+      }
+
+      #styles {
+        background-color: #f5f2ec;
+        color: #111111;
+        padding: 36px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+      }
+
+      #styles h2 {
+        font-size: 1.8em;
+        margin-bottom: 8px;
+      }
+
+      #styles .byline {
+        color: #555555;
+      }
+
+      #styles ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        border: 1px solid #dddddd;
+        background-color: #ffffff;
+      }
+
+      #styles li {
+        padding: 12px 16px;
+        border-bottom: 1px solid #eeeeee;
+        font-size: 0.9em;
+        color: #333333;
+      }
+
+      #styles li:nth-child(even) {
+        background-color: #faf8f4;
+      }
+
+      #styles li:last-child {
+        border-bottom: none;
+      }
+
+      #styles li strong {
+        display: inline-block;
+        width: 140px;
+        color: #111111;
+      }
+
+      footer {
+        background-color: #111111;
+        color: #ffffff;
+        padding: 24px 0;
+        margin-top: 32px;
+      }
+
+      footer .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      footer p {
+        margin: 0;
+      }
+
+      @media (max-width: 750px) {
+        #main-content {
+          grid-template-columns: 1fr;
+        }
+
+        #sidebar {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @meda (max-width: 599px) {
+
+        header .container,
+        footer .container {
+          display: block;
+        }
+
+        header li {
+          display: block;
+          margin-left: 0;
+          margin-top: 8px;
+        }
+
+        #sidebar {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (min-width: 600px) {
+        .container {
+          padding: 32px;
+        }
+      }
+    </style>
+  </head>
+  <body id="top">
+
+    <header>
+      <div class="container">
+        <h1> BOB'S BEERS </h1>
+        <ul>
+          <li><a href="#families"> Beer Families</a></li>
+          <li><a href="#top10"> Top 10</a></li>
+          <li><a href="#styles"> Styles</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="container">
+      <div id="main-content">
+        <div>
+          <p class="greeting">
+            Good Beer. No Gatekeeping. </p>
+          <h1 id="headline">
+            Find your beer. Know your pour.
+          </h1>
+          <p class="byline">
+            Great taste doesn't have to come with a big price tag.
+          </p>
+          <a href="#top10" class="badge">Explore the Top 10</a>
+          <img src="hero-beer.jpg" alt="Glass of beer on a counter">
+        </div>
+
+        <div id="sidebar">
+          <p class="greeting" id="families">
+            02 / Beer Families
+          </p>
+          <h2 class="ingredients-heading">
+            A little beer knowledge. A better pour.
+          </h2>
+          <p class="byline">
+            Lagers, Ales, Wheat Beers, and Stout
+          </p>
+
+          <div class="grid-item">
+            <img src="lagers.jpg" alt="Glass of lager">
+            <h3>
+              Lagers
+            </h3>
+            <p class="yeild">
+              Crisp, clean and easy drinking, a refreshing place to start.
+            </p>
+          </div>
+
+          <div class="grid-item">
+            <img src="ales.jpg" alt="Glass of ale">
+            <h3>
+              Ales
+            </h3>
+            <p class="yeild">
+              Expressive, from fruity and bright to rich and malty.
+            </p>
+          </div>
+
+          <div class="grid-item">
+            <img src="wheat-beer.jpg" alt="Glass of wheat beer">
+            <h3>
+              Wheat Beers
+            </h3>
+            <p class="yeild">
+              Soft, often hazy and refreshing, with bready or citrus notes.
+            </p>
+          </div>
+
+          <div class="grid-item">
+            <img src="stout.jpg" alt="Glass of stout">
+            <h3>
+              Stout
+            </h3>
+            <p class="yeild">
+              Dark, rich-bodied beer with flavors of coffee and dark chocolate.
+            </p>
+          </div>
+        </div>
+
+        <div id="top10">
+          <p class="greeting">
+            03 / Top 10
+          </p>
+          <h2>
+            Bob's Top Beer
+          </h2>
+          <p class="byline">
+            Personal picks
+          </p>
+
+          <ul>
+            <li>
+              <strong>#1 Busch</strong> - Busch takes the top spot overall because it delivers the ideal combination of cost and great quality. It’s a smooth beer with real flavor without having to compromise on getting a great beer.
+              <br>
+              <a href="https://www.lcbo.com/en/busch-168211" target="_blank" class="badge">Go Buy Busch</a>
+            </li>
+            <li><strong>#2 Bud Light</strong></li>
+            <li><strong>#3 Miller</strong> - Miller is the best light beer around, offering crisp, refreshing flavor. Its slightly higher price tag keeps it just a couple of spots lower, though it remains an easy go to.</li>
+            <li><strong>#4 Coors</strong></li>
+            <li><strong>#5 Corona</strong> - Corona is the smoothest, tastiest beer in my lineup for kicking back and relaxing. For the best experience, serve it ice cold with a fresh lime.</li>
+            <li><strong>#6 Stella</strong></li>
+            <li><strong>#7 Modelo</strong> - Modelo brings a thicker, smoother taste that stands out on a hot day. It is very refreshing making it an easy favorite when hot outside.</li>
+            <li><strong>#8 Budweiser</strong></li>
+            <li><strong>#9 Peroni</strong> - Peroni is a crisp beer that hits the spot when you are hungry. Clean and refreshing, it tastes amazing with barbecue food.</li>
+            <li><strong>#10 Sol</strong></li>
+          </ul>
+        </div>
+
+        <div id="styles">
+          <p class="greeting">
+            04 / Styles
+          </p>
+          <h2>
+            What's in your glass?
+          </h2>
+          <p class="byline">
+            Pilsner, Amber lager, Pale Ale, IPA, Wheat Beer, and Stout.
+          </p>
+
+          <ul>
+            <li><strong>Pilsner</strong> - Lager - Crisp malt with a clean, slightly hoppy finish.</li>
+            <li><strong>Amber Lager</strong> - Lager - Toasted malt with balanced hops and a smooth finish.</li>
+            <li><strong>Pale Ale</strong> - Ale - Balanced malt with hop character.</li>
+            <li><strong>IPA</strong> - Ale - Tastes of hops and bitterness.</li>
+            <li><strong>Wheat Beer</strong> - Wheat - Soft texture with light grain or citrus notes.</li>
+            <li><strong>Stout</strong> - Dark - Rich character with roasted coffee and chocolate notes.</li>
+          </ul>
+        </div>
+      </div>
+
+      <footer>
+        <div class="container">
+          <p>
+            <strong>Good Taste Is Personal.</strong> Contact: <a href="mailto:r3law@uwaterloo.ca">r3law@uwaterloo.ca</a>
+          </p>
+          <p>
+            <a href="#top">Back to the first pour</a>
+          </p>
+        </div>
+      </footer>
+  </body>
+</html>
